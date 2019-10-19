@@ -1,0 +1,45 @@
+service: serverless-stack
+
+package:
+  individually: true
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  # you can overwrite defaults here
+  stage: prod
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 'lambda:InvokeFunction'
+      Resource: '*'
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+    packager: 'yarn' # Packager that will be used to package your external modules
+  # warmup:
+  #   enabled: true
+  #   events:
+  #     - schedule: rate(5 minutes)
+  #   prewarm: true
+  #   concurrency: 1
+  prune:
+    automatic: true
+    number: 5 # Number of versions to keep
+
+functions:
+  create:
+    handler: src/functions/create.default
+    events:
+      - http:
+          path: hello-typescript
+          method: get
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+  - serverless-dotenv-plugin
+  - serverless-prune-plugin
