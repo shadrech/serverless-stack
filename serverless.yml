@@ -3,29 +3,42 @@ service: serverless-stack
 package:
   individually: true
 
+plugins:
+  - serverless-middleware
+  - serverless-webpack
+  - serverless-offline
+  - serverless-dotenv-plugin
+  - serverless-prune-plugin
+
 provider:
   name: aws
-  runtime: nodejs10.x
-  # you can overwrite defaults here
+  runtime: nodejs12.14
   stage: prod
   region: us-east-1
   iamRoleStatements:
-    - Effect: 'Allow'
+    - Effect: Allow
       Action:
-        - 'lambda:InvokeFunction'
-      Resource: '*'
+        - lambda:InvokeFunction
+      Resource: "*"
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "arn:aws:dynamodb:use-east-1:*:*"
 
 custom:
+  middleware:
+    pre:
+      - src/middleware.bodyJson
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
-    packager: 'yarn' # Packager that will be used to package your external modules
-  # warmup:
-  #   enabled: true
-  #   events:
-  #     - schedule: rate(5 minutes)
-  #   prewarm: true
-  #   concurrency: 1
+    packager: "yarn"
   prune:
     automatic: true
     number: 5 # Number of versions to keep
@@ -35,11 +48,7 @@ functions:
     handler: src/functions/create.default
     events:
       - http:
-          path: hello-typescript
-          method: get
-
-plugins:
-  - serverless-webpack
-  - serverless-offline
-  - serverless-dotenv-plugin
-  - serverless-prune-plugin
+          path: notes
+          method: post
+          cors: true
+          authorizer: aws_iam
