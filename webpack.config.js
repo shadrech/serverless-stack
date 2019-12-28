@@ -1,5 +1,6 @@
 const nodeExternals = require('webpack-node-externals');
 const slsw = require('serverless-webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: slsw.lib.entries,
@@ -9,12 +10,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.ts?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
       {
-        test: /\.jsx?$/,
+        test: /\.js?$/,
         include: __dirname,
         exclude: /node_modules/,
         use: {
@@ -26,4 +27,9 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
   },
+  plugins: [
+    new CopyWebpackPlugin([
+      './src/validation/*.json'
+    ])
+  ]
 };

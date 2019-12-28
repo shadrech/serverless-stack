@@ -1,0 +1,18 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Create Note",
+  "description": "A note",
+  "type": "object",
+  "properties": {
+    "attachment": {
+      "description": "An image attachment",
+      "type": "string"
+    },
+    "content": {
+      "description": "Note message",
+      "type": "string"
+    }
+  },
+  "required": [ "content", "attachment" ]
+}

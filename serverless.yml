@@ -9,12 +9,14 @@ plugins:
   - serverless-offline
   - serverless-dotenv-plugin
   - serverless-prune-plugin
+  - serverless-reqvalidator-plugin
+  - serverless-aws-documentation
 
 provider:
   name: aws
-  runtime: nodejs12.14
+  runtime: nodejs8.10
   stage: prod
-  region: us-east-1
+  region: ${env:REGION}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -34,7 +36,7 @@ provider:
 custom:
   middleware:
     pre:
-      - src/middleware.bodyJson
+      - src/middleware.bodyParser
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
@@ -42,13 +44,28 @@ custom:
   prune:
     automatic: true
     number: 5 # Number of versions to keep
+  documentation:
+    api:
+      info:
+        version: 0.1.0
+        title: Serverless stack
+        description: From tutorial serverless-stack.com
+    models:
+      - name: CreateNoteRequest
+        contentType: "application/json"
+        schema:
+          required:
+            - email
+            - password
+          properties:
+            content:
+              type: string
+            attachment:
+              type: string
+              pattern: "(.jpg|.png|.jpeg)$"
 
 functions:
-  create:
-    handler: src/functions/create.default
-    events:
-      - http:
-          path: notes
-          method: post
-          cors: true
-          authorizer: aws_iam
+  - ${file(serverless-functions.yml)}
+resources:
+  - ${file(resources/api-gateway-errors.yml)}
+  - ${file(resources/request-body-validation.yml)}
