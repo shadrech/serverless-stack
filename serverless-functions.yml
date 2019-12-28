@@ -1,5 +1,5 @@
 list:
-  handler: src/functions/list.default
+  handler: src/functions/list.main
   events:
     - http:
         path: notes
