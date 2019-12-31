@@ -3,7 +3,7 @@ import { AWSLambdaHandler } from '../typings';
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
-export const main: AWSLambdaHandler = async (event) => {
+const list: AWSLambdaHandler = async (event) => {
   const params = {
     TableName: process.env.TABLE_NAME || '',
     KeyConditionExpression: 'userId = :userId',
@@ -33,3 +33,5 @@ export const main: AWSLambdaHandler = async (event) => {
     body: JSON.stringify(result.Items)
   };
 };
+
+export default list;

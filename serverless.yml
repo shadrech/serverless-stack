@@ -14,8 +14,7 @@ plugins:
 
 provider:
   name: aws
-  runtime: nodejs8.10
-  stage: prod
+  runtime: nodejs8.17.0
   region: ${env:REGION}
   iamRoleStatements:
     - Effect: Allow
@@ -31,7 +30,7 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:use-east-1:*:*"
+      Resource: "arn:aws:dynamodb:us-east-1:*:*"
 
 custom:
   middleware:
@@ -43,7 +42,7 @@ custom:
     packager: "yarn"
   prune:
     automatic: true
-    number: 5 # Number of versions to keep
+    number: 2 # Number of versions to keep
   documentation:
     api:
       info:
@@ -55,8 +54,8 @@ custom:
         contentType: "application/json"
         schema:
           required:
-            - email
-            - password
+            - content
+            - attachment
           properties:
             content:
               type: string
@@ -65,7 +64,8 @@ custom:
               pattern: "(.jpg|.png|.jpeg)$"
 
 functions:
-  - ${file(serverless-functions.yml)}
+  - ${file(serverless/functions.yml)}
+
 resources:
-  - ${file(resources/api-gateway-errors.yml)}
-  - ${file(resources/request-body-validation.yml)}
+  - ${file(serverless/resources/api-gateway-errors.yml)}
+  - ${file(serverless/resources/request-body-validation.yml)}

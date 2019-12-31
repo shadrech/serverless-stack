@@ -1,5 +1,5 @@
 list:
-  handler: src/functions/list.main
+  handler: src/functions/list.default
   events:
     - http:
         path: notes
@@ -14,6 +14,13 @@ create:
         method: POST
         cors: true
         authorizer: aws_iam
+        documentation:
+          summary: "Create note"
+          description: "Creates new note"
+          tags:
+            - notes
+          requestModels:
+            "application/json": CreateNoteRequest
 get:
   handler: src/functions/get.default
   events:
@@ -22,10 +29,3 @@ get:
         method: GET
         cors: true
         authorizer: aws_iam
-        documentation:
-          summary: "Create note"
-          description: "Creates new note"
-          tags:
-            - notes
-          requestModels:
-            "application/json": CreateNoteRequest
