@@ -4,8 +4,6 @@
   "main": "src/handler.js",
   "license": "MIT",
   "scripts": {
-    "deploy:env": "sls deploy --stage $NODE_ENV",
-    "deploy": "export NODE_ENV=dev && yarn deploy:env",
     "lint": "eslint src --ext ts,js --no-ignore --fix",
     "serve": "sls offline start",
     "serve:watch": "nodemon -e js,ts,jsx,tsx -x yarn serve",

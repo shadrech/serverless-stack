@@ -1,5 +1,5 @@
 list:
-  handler: src/functions/list.default
+  handler: ./src/functions/list.default
   events:
     - http:
         path: notes
@@ -7,7 +7,7 @@ list:
         cors: true
         authorizer: aws_iam
 create:
-  handler: src/functions/create.default
+  handler: ./src/functions/create.default
   events:
     - http:
         path: notes
@@ -22,7 +22,7 @@ create:
           requestModels:
             "application/json": CreateNoteRequest
 get:
-  handler: src/functions/get.default
+  handler: ./src/functions/get.default
   events:
     - http:
         path: notes/{id}

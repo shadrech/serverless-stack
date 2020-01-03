@@ -1,39 +1,24 @@
-service: serverless-stack
+service: notes-app-api
 
 package:
   individually: true
 
 plugins:
   - serverless-middleware
-  - serverless-webpack
-  - serverless-offline
   - serverless-dotenv-plugin
-  - serverless-prune-plugin
+  - serverless-webpack
   - serverless-reqvalidator-plugin
   - serverless-aws-documentation
-
-provider:
-  name: aws
-  runtime: nodejs8.17.0
-  region: ${env:REGION}
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - lambda:InvokeFunction
-      Resource: "*"
-    - Effect: Allow
-      Action:
-        - dynamodb:DescribeTable
-        - dynamodb:Query
-        - dynamodb:Scan
-        - dynamodb:GetItem
-        - dynamodb:PutItem
-        - dynamodb:UpdateItem
-        - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:us-east-1:*:*"
+  - serverless-prune-plugin
+  - serverless-offline
 
 custom:
+  # Our stage is based on what is passed in when running serverless commands. Or fallsback to what we have set in the provider section.
+  stage: ${opt:stage, self:provider.stage}
+  # Set the table name here so we can use it while testing locally
+  tableName: ${self:custom.stage}-notes
   middleware:
+    folderName: _middleware
     pre:
       - src/middleware.bodyParser
   webpack:
@@ -63,9 +48,37 @@ custom:
               type: string
               pattern: "(.jpg|.png|.jpeg)$"
 
+provider:
+  name: aws
+  stage: ${env:NODE_ENV}
+  runtime: nodejs8.10
+  region: ${env:REGION}
+  environment:
+    TABLE_NAME: ${self:custom.tableName}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - lambda:InvokeFunction
+      Resource: "*"
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - "Fn::GetAtt": [ NotesTable, Arn ]
+
 functions:
   - ${file(serverless/functions.yml)}
 
 resources:
   - ${file(serverless/resources/api-gateway-errors.yml)}
   - ${file(serverless/resources/request-body-validation.yml)}
+  - ${file(serverless/resources/dynamodb-table.yml)}
+  - ${file(serverless/resources/s3-bucket.yml)}
+  - ${file(serverless/resources/cognito-user-pool.yml)}
+  - ${file(serverless/resources/cognito-identity-pool.yml)}

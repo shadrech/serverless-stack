@@ -1,6 +1,5 @@
 node_modules/
 .webpack
-.middleware
 .build
 .serverless/
 .env
