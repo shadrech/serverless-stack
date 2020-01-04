@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Create Note Schema",
+  "required": ["content", "attachment"],
+  "properties": {
+    "content": {
+      "type": "string"
+    },
+    "attachment": {
+      "type": "string",
+      "pattern": "(.jpg|.png|.jpeg)$"
+    }
+  }
+}

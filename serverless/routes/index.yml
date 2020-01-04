@@ -1,0 +1,4 @@
+functions:
+  - ${file(serverless/routes/create.yml)}
+  - ${file(serverless/routes/list.yml)}
+  - ${file(serverless/routes/get.yml)}

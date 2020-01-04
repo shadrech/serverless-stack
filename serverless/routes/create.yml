@@ -1,0 +1,11 @@
+create:
+  handler: ./src/functions/create.default
+  events:
+    - http:
+        path: notes
+        method: POST
+        cors: true
+        authorizer: aws_iam
+        request:
+          schema:
+            application/json: ${file(serverless/routes/validation/create.json)}

@@ -7,8 +7,6 @@ plugins:
   - serverless-middleware
   - serverless-dotenv-plugin
   - serverless-webpack
-  - serverless-reqvalidator-plugin
-  - serverless-aws-documentation
   - serverless-prune-plugin
   - serverless-offline
 
@@ -28,25 +26,6 @@ custom:
   prune:
     automatic: true
     number: 2 # Number of versions to keep
-  documentation:
-    api:
-      info:
-        version: 0.1.0
-        title: Serverless stack
-        description: From tutorial serverless-stack.com
-    models:
-      - name: CreateNoteRequest
-        contentType: "application/json"
-        schema:
-          required:
-            - content
-            - attachment
-          properties:
-            content:
-              type: string
-            attachment:
-              type: string
-              pattern: "(.jpg|.png|.jpeg)$"
 
 provider:
   name: aws
@@ -72,12 +51,10 @@ provider:
       Resource:
         - "Fn::GetAtt": [ NotesTable, Arn ]
 
-functions:
-  - ${file(serverless/functions.yml)}
+functions: ${file(serverless/routes/index.yml):functions}
 
 resources:
   - ${file(serverless/resources/api-gateway-errors.yml)}
-  - ${file(serverless/resources/request-body-validation.yml)}
   - ${file(serverless/resources/dynamodb-table.yml)}
   - ${file(serverless/resources/s3-bucket.yml)}
   - ${file(serverless/resources/cognito-user-pool.yml)}
