@@ -7,7 +7,7 @@
     "lint": "eslint src --ext ts,js --no-ignore --fix",
     "serve": "sls offline start",
     "serve:watch": "nodemon -e js,ts,jsx,tsx -x yarn serve",
-    "test": "jest",
+    "test": "jest --verbose=true",
     "test:watch": "jest --watch",
     "build": "sls webpack"
   },
