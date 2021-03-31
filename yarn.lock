@@ -7976,10 +7976,10 @@ serverless-dotenv-plugin@^2.1.1:
     dotenv "^4.0.0"
     dotenv-expand "^4.0.1"
 
-serverless-middleware@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/serverless-middleware/-/serverless-middleware-0.0.9.tgz#3063082f47f2a0d35e667e9e34d9b0dd84ff4e70"
-  integrity sha512-hGGVJlNzF6awrzdFewKKx3OpZ9BF4CnzqbWREUZyJjvSQLkWyTcmH4ys6mhjuke4HLJqDZU7QitkPETacBfxfA==
+"serverless-middleware@git://github.com/shadrech/serverless-middleware.git":
+  version "0.0.10"
+  uid bbc6564272e9bfed902ef2a747824b4f276c3214
+  resolved "git://github.com/shadrech/serverless-middleware.git#bbc6564272e9bfed902ef2a747824b4f276c3214"
   dependencies:
     fs-extra "^8.1.0"
 
@@ -9525,9 +9525,9 @@ xtend@^4.0.0, xtend@~4.0.1:
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
 
 y18n@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.0.tgz#95ef94f85ecc81d007c264e190a120f0a3c8566b"
-  integrity sha512-r9S/ZyXu/Xu9q1tYlpsLIsa3EeLXXk0VwlxqTcFRfg9EhMW+17kbt9G0NrgCmhGb5vT2hyhJZLfDGx+7+5Uj/w==
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.1.tgz#8db2b83c31c5d75099bb890b23f3094891e247d4"
+  integrity sha512-wNcy4NvjMYL8gogWWYAO7ZFWFfHcbdbE57tZO8e4cbpj8tfUcwrwqSl3ad8HxpYWCdXcJUCeKKZS62Av1affwQ==
 
 yallist@^2.1.2:
   version "2.1.2"
