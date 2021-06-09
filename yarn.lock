@@ -7976,10 +7976,10 @@ serverless-dotenv-plugin@^2.1.1:
     dotenv "^4.0.0"
     dotenv-expand "^4.0.1"
 
-serverless-middleware@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/serverless-middleware/-/serverless-middleware-0.0.9.tgz#3063082f47f2a0d35e667e9e34d9b0dd84ff4e70"
-  integrity sha512-hGGVJlNzF6awrzdFewKKx3OpZ9BF4CnzqbWREUZyJjvSQLkWyTcmH4ys6mhjuke4HLJqDZU7QitkPETacBfxfA==
+"serverless-middleware@git://github.com/shadrech/serverless-middleware.git":
+  version "0.0.10"
+  uid bbc6564272e9bfed902ef2a747824b4f276c3214
+  resolved "git://github.com/shadrech/serverless-middleware.git#bbc6564272e9bfed902ef2a747824b4f276c3214"
   dependencies:
     fs-extra "^8.1.0"
 
@@ -8824,9 +8824,9 @@ traverse@^0.6.6:
   integrity sha1-y99WD9e5r2MlAv7UD5GMFX6pcTc=
 
 trim-newlines@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/trim-newlines/-/trim-newlines-3.0.0.tgz#79726304a6a898aa8373427298d54c2ee8b1cb30"
-  integrity sha512-C4+gOpvmxaSMKuEf9Qc134F1ZuOHVXKRbtEflf4NTtuuJDEIJ9p5PXsalL8SkeRw+qit1Mo+yuvMPAKwWg/1hA==
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/trim-newlines/-/trim-newlines-3.0.1.tgz#260a5d962d8b752425b32f3a7db0dcacd176c144"
+  integrity sha512-c1PTsA3tYrIsLGkJkzHF+w9F2EyxfXGo4UyJc4pFL++FMjnq0HJS69T3M7d//gKrFKwy429bouPescbjecU+Zw==
 
 trim-repeated@^1.0.0:
   version "1.0.0"
