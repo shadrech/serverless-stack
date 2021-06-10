@@ -6720,9 +6720,9 @@ normalize-path@^3.0.0, normalize-path@~3.0.0:
   integrity sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
 
 normalize-url@^4.1.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-4.5.0.tgz#453354087e6ca96957bd8f5baf753f5982142129"
-  integrity sha512-2s47yzUxdexf1OhyRi4Em83iQk0aPvwTddtFz4hnSSw9dCEsLEGf6SwIO8ss/19S9iBb5sJaOuTvTGDeZI00BQ==
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-4.5.1.tgz#0dd90cf1288ee1d1313b87081c9a5932ee48518a"
+  integrity sha512-9UZCFRHQdNrfTpGg8+1INIg93B6zE0aXMVFkw1WFwvO4SlZywU6aLg5Of0Ap/PgcbSw4LNxvMWXMeugwMCX0AA==
 
 npm-conf@^1.1.0:
   version "1.1.3"
@@ -7976,10 +7976,10 @@ serverless-dotenv-plugin@^2.1.1:
     dotenv "^4.0.0"
     dotenv-expand "^4.0.1"
 
-serverless-middleware@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/serverless-middleware/-/serverless-middleware-0.0.9.tgz#3063082f47f2a0d35e667e9e34d9b0dd84ff4e70"
-  integrity sha512-hGGVJlNzF6awrzdFewKKx3OpZ9BF4CnzqbWREUZyJjvSQLkWyTcmH4ys6mhjuke4HLJqDZU7QitkPETacBfxfA==
+"serverless-middleware@git://github.com/shadrech/serverless-middleware.git":
+  version "0.0.10"
+  uid bbc6564272e9bfed902ef2a747824b4f276c3214
+  resolved "git://github.com/shadrech/serverless-middleware.git#bbc6564272e9bfed902ef2a747824b4f276c3214"
   dependencies:
     fs-extra "^8.1.0"
 
