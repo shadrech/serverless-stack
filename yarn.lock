@@ -7976,10 +7976,10 @@ serverless-dotenv-plugin@^2.1.1:
     dotenv "^4.0.0"
     dotenv-expand "^4.0.1"
 
-serverless-middleware@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/serverless-middleware/-/serverless-middleware-0.0.9.tgz#3063082f47f2a0d35e667e9e34d9b0dd84ff4e70"
-  integrity sha512-hGGVJlNzF6awrzdFewKKx3OpZ9BF4CnzqbWREUZyJjvSQLkWyTcmH4ys6mhjuke4HLJqDZU7QitkPETacBfxfA==
+"serverless-middleware@git://github.com/shadrech/serverless-middleware.git":
+  version "0.0.10"
+  uid bbc6564272e9bfed902ef2a747824b4f276c3214
+  resolved "git://github.com/shadrech/serverless-middleware.git#bbc6564272e9bfed902ef2a747824b4f276c3214"
   dependencies:
     fs-extra "^8.1.0"
 
@@ -8732,9 +8732,9 @@ tmp@^0.0.33:
     os-tmpdir "~1.0.2"
 
 tmpl@1.0.x:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/tmpl/-/tmpl-1.0.4.tgz#23640dd7b42d00433911140820e5cf440e521dd1"
-  integrity sha1-I2QN17QtAEM5ERQIIOXPRA5SHdE=
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/tmpl/-/tmpl-1.0.5.tgz#8683e0b902bb9c20c4f726e3c0b69f36518c07cc"
+  integrity sha512-3f0uOEAQwIqGuWW2MVzYg8fV/QNnc/IpuJNG837rLuczAaLVHslWHZQj4IGiEl5Hs3kkbhwL9Ab7Hrsmuj+Smw==
 
 to-arraybuffer@^1.0.0:
   version "1.0.1"
