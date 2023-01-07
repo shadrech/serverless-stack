@@ -5814,9 +5814,9 @@ json5@2.x, json5@^2.1.0:
     minimist "^1.2.0"
 
 json5@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/json5/-/json5-1.0.1.tgz#779fb0018604fa854eacbf6252180d83543e3dbe"
-  integrity sha512-aKS4WQjPenRxiQsC93MNfjx+nbF4PAdYzmd/1JIj8HYzqfbu86beTuNgXDzPknWk0n0uARlyewZo4s++ES36Ow==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/json5/-/json5-1.0.2.tgz#63d98d60f21b313b77c4d6da18bfa69d80e1d593"
+  integrity sha512-g1MWMLBiz8FKi1e4w0UyVL3w+iJceWAFBAaBnnGKOpNa5f8TLktkbre1+s6oICydWAm+HRUGTmI+//xv2hvXYA==
   dependencies:
     minimist "^1.2.0"
 
@@ -6440,9 +6440,9 @@ minimist@0.0.8:
   integrity sha1-hX/Kv8M5fSYluCKCYuhqp6ARsF0=
 
 minimist@^1.1.1, minimist@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
-  integrity sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.7.tgz#daa1c4d91f507390437c6a8bc01078e7000c4d18"
+  integrity sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==
 
 minimist@~0.0.1:
   version "0.0.10"
@@ -7976,10 +7976,10 @@ serverless-dotenv-plugin@^2.1.1:
     dotenv "^4.0.0"
     dotenv-expand "^4.0.1"
 
-serverless-middleware@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/serverless-middleware/-/serverless-middleware-0.0.9.tgz#3063082f47f2a0d35e667e9e34d9b0dd84ff4e70"
-  integrity sha512-hGGVJlNzF6awrzdFewKKx3OpZ9BF4CnzqbWREUZyJjvSQLkWyTcmH4ys6mhjuke4HLJqDZU7QitkPETacBfxfA==
+"serverless-middleware@git://github.com/shadrech/serverless-middleware.git":
+  version "0.0.10"
+  uid bbc6564272e9bfed902ef2a747824b4f276c3214
+  resolved "git://github.com/shadrech/serverless-middleware.git#bbc6564272e9bfed902ef2a747824b4f276c3214"
   dependencies:
     fs-extra "^8.1.0"
 
